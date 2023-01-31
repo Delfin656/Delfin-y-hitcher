@@ -1,3 +1,14 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+
+.bg-login{
+    background-image: url(https://cdn.pixabay.com/photo/2018/08/03/08/33/food-3581341_960_720.jpg);
+    background-size: cover;
+
+}
+
+.bg-registro{
+    background-image: url(https://cdn.pixabay.com/photo/2020/03/25/21/05/pizza-4968645_960_720.jpg);
+    background-size: cover;
+} 
