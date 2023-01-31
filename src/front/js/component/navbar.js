@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import  DYH  from "../../img/D&H_Proyecto_final_LOGO Transparente.png";
 
 export const Navbar = () => {
   return (
@@ -7,7 +8,7 @@ export const Navbar = () => {
       <div className="container-fluid">
         <Link to="/" className="navbar-brand ms-5">
           <img
-            src="https://o.remove.bg/downloads/7bffa482-dd5e-41bc-8ea9-48437f70b1f0/D_H_Proyecto_final_LOGO_NEGRO-removebg-preview.png"
+            src={DYH}
             alt=""
             style={{ height: "90px", width: "120px" }}
           />

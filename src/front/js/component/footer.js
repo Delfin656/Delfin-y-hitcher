@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import  DYH  from "../../img/D&H_Proyecto_final_LOGO Transparente.png";
 
 export const Footer = () => (
   <div className="container-fluid mt-3 p-0">
@@ -39,7 +40,7 @@ export const Footer = () => (
 
       <div className="d-flex flex-column flex-sm-row justify-content-evenly pt-3 border-top bg-transparent">
         <img
-          src="https://o.remove.bg/downloads/7bffa482-dd5e-41bc-8ea9-48437f70b1f0/D_H_Proyecto_final_LOGO_NEGRO-removebg-preview.png"
+          src={DYH}
           alt="..."
           className="bg-transparent"
           style={{ width: "150px", height: "100px" }}
