@@ -42,7 +42,7 @@ export const Login = (props) => {
 
   return (
     <div className="container-fluid">
-      <div className="container p-2 w-75 bg-secondary mt-3 rounded shadow">
+      <div className="container p-2 w-75 bg-secondary mt-3 mb-3 rounded shadow">
         <div class="row align-items-stretch">
           <div className="bg-login col bg-dark d-none d-lg-block col-ms-5 col-lg-5 col-xl-6 rounded"></div>
           <div className="col bg-white p-5 rounded-end">

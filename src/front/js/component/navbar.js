@@ -135,12 +135,12 @@ export const Navbar = () => {
               </div>
             ) : (
               <React.Fragment>
-                <button className="me-2 p-2 boton-iniciar" type="submit">
-                  <Link to="/login" style={{ color: "Black" }}>
+                <button className="button-login btn btn-light me-2 p-2 " type="submit">
+                  <Link to="/login" style={{ color: "Black", textdecoration: "none"}}>
                     Iniciar Sesión
                   </Link>
                 </button>
-                <button className="boton-registrate p-2 me-3" type="submit">
+                <button className="button-registro btn btn-light p-2 me-3" type="submit">
                   <Link to="/registro" style={{ color: "Black" }}>
                     Registrate
                   </Link>
