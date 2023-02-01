@@ -45,7 +45,7 @@ def handle_chef():
         return "Ya existe un chef con ese email!", 400
     return "Method not implemented yet!",500
 
-@api.route('/recipe', methods=['POST'])
+@api.route('/recipes', methods=['POST'])
 def post_recipe():
     body = request.json
     if "content" not in body:
@@ -64,3 +64,10 @@ def post_recipe():
                 return jsonify({ "error": "Ocurrio un error en el servidor 🐬"}), 500
         #return jsonify(new_tweet.serialize()), 201
     return "Error algo ah ocurrido! 🐋", 404
+
+@api.route('/recipes', methods=['GET'])
+def get_recipes():
+    recetas = Recipe.query.all()
+    return jsonify(
+            list(reversed([ receta.serialize() for receta in recetas ]))
+        ), 200
