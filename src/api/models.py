@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+import datetime
 
 db = SQLAlchemy()
 
@@ -62,6 +63,6 @@ class Recipe(db.Model): #Query
     def serialize(self):
         return {
             "content": self.content,
-            #"date": arrow.get(self.date).humanize(),
+            "date": str(self.date),
             "author": self.author.serialize() if self.author != None else 'No author'
         }
