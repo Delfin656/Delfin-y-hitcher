@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import DYH from "../../img/D&H_Proyecto_final_LOGO Transparente.png";
 
 import { Context } from "../store/appContext";
 
@@ -40,9 +41,11 @@ export const Registro = (props) => {
 
   return (
     <div className="container-fluid">
-      <div className="container p-2 w-75 bg-secondary mt-3 rounded shadow">
+      <div className="container p-2 w-75 bg-secondary mt-3 mb-3 rounded shadow">
         <div className="row align-items-stretch">
-          <div className="bg-registro col bg-dark d-none d-lg-block col-ms-5 col-lg-5 col-xl-6 rounded"></div>
+          <div className="bg-registro col bg-dark d-none d-lg-block col-ms-5 col-lg-5 col-xl-6 rounded">
+            <img className="img-registro mt-5" src={DYH} alt="" style={{ height: "250px", width: "300px"}} align="right" />
+          </div>
           <div className="col bg-white p-5 rounded-end">
             <h2
               className="fw-bold text-center"
@@ -60,8 +63,9 @@ export const Registro = (props) => {
                 fontWeight: "400",
               }}
             >
-              La mejor experiencia de tu vida 
+              La mejor experiencia de tu vida
             </h6>
+
             {/* <h6 className="fw-bold text-center py-2">
               <Link
                 target={"_blank"}
@@ -73,7 +77,7 @@ export const Registro = (props) => {
             </h6> */}
             <form action="#" onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label htmlFor="nnputname4" className="form-label">
+                <label htmlFor="inputname4" className="form-label">
                   Nombre
                 </label>
                 <input
@@ -107,7 +111,7 @@ export const Registro = (props) => {
                     borderRadius: "4px",
                   }}
                 ></input>
-                <label htmlFor="nputemail4" className="form-label mt-2">
+                <label htmlFor="inputemail4" className="form-label mt-2">
                   Correo
                 </label>
                 <input
