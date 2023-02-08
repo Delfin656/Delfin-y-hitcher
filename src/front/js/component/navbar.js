@@ -1,17 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import  DYH  from "../../img/D&H_Proyecto_final_LOGO Transparente.png";
+import DYH from "../../img/D&H_Proyecto_final_LOGO Transparente.png";
 
 export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-dark pt-0 pb-0">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand ms-5">
-          <img
-            src={DYH}
-            alt=""
-            style={{ height: "90px", width: "120px" }}
-          />
+          <img src={DYH} alt="" style={{ height: "90px", width: "120px" }} />
         </Link>
         <button
           className="navbar-toggler"
@@ -135,13 +131,34 @@ export const Navbar = () => {
               </div>
             ) : (
               <React.Fragment>
-                <button className="button-login btn btn-light me-2 p-2 " type="submit">
-                  <Link to="/login" style={{ color: "Black", textdecoration: "none"}}>
+                <button
+                  className="button-login btn btn-light me-2 p-2 "
+                  type="submit"
+                  style={{
+                    borderRadius: "0px",
+                  }}
+                >
+                  <Link
+                    to="/login"
+                    style={{
+                      color: "Black",
+                      textDecoration: "none",
+                    }}
+                  >
                     Iniciar Sesión
                   </Link>
                 </button>
-                <button className="button-registro btn btn-light p-2 me-3" type="submit">
-                  <Link to="/registro" style={{ color: "Black" }}>
+                <button
+                  className="button-registro btn btn-light p-2 me-3"
+                  type="submit"
+                  style={{
+                    borderRadius: "0px",
+                  }}
+                >
+                  <Link
+                    to="/registro"
+                    style={{ color: "Black", textDecoration: "none" }}
+                  >
                     Registrate
                   </Link>
                 </button>
