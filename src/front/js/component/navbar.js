@@ -131,37 +131,38 @@ export const Navbar = () => {
               </div>
             ) : (
               <React.Fragment>
-                <button
-                  className="button-login btn btn-light me-2 p-2 "
-                  type="submit"
+                <Link
+                  to="/login"
                   style={{
-                    borderRadius: "0px",
+                    color: "Black",
+                    textDecoration: "none",
                   }}
                 >
-                  <Link
-                    to="/login"
+                  <button
+                    className="button-login btn btn-light me-2 p-2 "
+                    type="submit"
                     style={{
-                      color: "Black",
-                      textDecoration: "none",
+                      borderRadius: "8px",
                     }}
                   >
                     Iniciar Sesión
-                  </Link>
-                </button>
-                <button
-                  className="button-registro btn btn-light p-2 me-3"
-                  type="submit"
-                  style={{
-                    borderRadius: "0px",
-                  }}
+                  </button>
+                </Link>
+
+                <Link
+                  to="/registro"
+                  style={{ color: "Black", textDecoration: "none" }}
                 >
-                  <Link
-                    to="/registro"
-                    style={{ color: "Black", textDecoration: "none" }}
+                  <button
+                    className="button-registro btn btn-light p-2 me-3"
+                    type="submit"
+                    style={{
+                      borderRadius: "8px",
+                    }}
                   >
                     Registrate
-                  </Link>
-                </button>
+                  </button>
+                </Link>
               </React.Fragment>
             )}
           </div>
