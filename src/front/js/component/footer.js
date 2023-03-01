@@ -53,7 +53,7 @@ export const Footer = () => (
             <li className="nav-item bg-transparent">
               <a href="#" className="nav-link p-0 text-white text-center mt-4 " align="right">
                 Hecho en Venezuela con{" "}
-                <i class="fa-regular fa-heart bg-transparent"></i>
+                <i className="fa-regular fa-heart bg-transparent"></i>
               </a>
             </li>
           </ul>

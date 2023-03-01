@@ -5,38 +5,49 @@ import DYH from "../../img/D&H_Proyecto_final_LOGO Transparente.png";
 import { Context } from "../store/appContext";
 
 export const Registro = (props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { store, actions } = useContext(Context);
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
-  const [telefono, setTelefono] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+
   async function handleSubmit(event) {
     event.preventDefault();
-    try {
-      const response = await fetch(process.env.BACKEND_URL + "/api/user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "Application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-          nombre: nombre,
-          apellido: apellido,
-          telefono: telefono,
-        }),
-      });
-      if (!response.ok) {
-        alert("Error al crear el usuario");
-        return;
-      }
-      alert("Usuario creado");
+    actions.registro(nombre, apellido, email, phone, password);
+    if (
+      nombre != "" &&
+      apellido != "" &&
+      email != "" &&
+      phone != "" &&
+      password != ""
+    )
       navigate("/login");
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   const response = await fetch(process.env.BACKEND_URL + "/api/user", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       email: email,
+    //       password: password,
+    //       nombre: nombre,
+    //       apellido: apellido,
+    //       telefono: telefono,
+    //     }),
+    //   });
+    //   if (!response.ok) {
+    //     alert("Error al crear el usuario");
+    //     return;
+    //   }
+    //   alert("Usuario creado");
+    //   navigate("/login");
+    // } catch (error) {
+    //   console.log(error);
+    // }
   }
 
   return (
@@ -44,7 +55,13 @@ export const Registro = (props) => {
       <div className="container p-2 w-75 bg-secondary mt-3 mb-3 rounded shadow">
         <div className="row align-items-stretch">
           <div className="bg-registro col bg-dark d-none d-lg-block col-ms-5 col-lg-5 col-xl-6 rounded">
-            <img className="img-registro mt-5" src={DYH} alt="" style={{ height: "250px", width: "300px"}} align="right" />
+            <img
+              className="img-registro mt-5"
+              src={DYH}
+              alt=""
+              style={{ height: "250px", width: "300px" }}
+              align="right"
+            />
           </div>
           <div className="col bg-white p-5 rounded-end">
             <h2
@@ -112,7 +129,7 @@ export const Registro = (props) => {
                   }}
                 ></input>
                 <label htmlFor="inputemail4" className="form-label mt-2">
-                  Correo
+                  Correo electrónico
                 </label>
                 <input
                   type="email"
@@ -136,9 +153,9 @@ export const Registro = (props) => {
                   className="form-control"
                   id="inputtelefono4"
                   aria-describedby="emailHelp"
-                  value={telefono}
+                  value={phone}
                   onChange={(event) => {
-                    setTelefono(event.target.value);
+                    setPhone(event.target.value);
                   }}
                   style={{
                     border: "1px solid #CED4DA",

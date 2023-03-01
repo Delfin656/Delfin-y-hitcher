@@ -78,7 +78,7 @@ export const Navbar = () => {
             </li>
           </ul>
           <div>
-            {localStorage.getItem("token") ? (
+            {/* {localStorage.getItem("token") ? (
               <div className="dropdown me-1">
                 <button
                   className="btn dropdown-toggle bg-transparent text-center boton-profile-navbar"
@@ -86,8 +86,8 @@ export const Navbar = () => {
                   id="dropdownMenuButton1"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                >
-                  <img
+                > */}
+                  {/* <img
                     src={
                       store.usuario.info?.imagen
                         ? store.usuario.info.imagen
@@ -101,8 +101,8 @@ export const Navbar = () => {
                       objectFit: "cover",
                     }}
                   />
-                </button>
-                <ul
+                </button> */}
+                {/* <ul
                   className="dropdown-menu dropdown-menu-end dropdown-menu-start"
                   aria-labelledby="dropdownMenuButton1"
                 >
@@ -122,14 +122,14 @@ export const Navbar = () => {
                       onClick={() => {
                         actions.removeToken();
                       }}
-                    >
-                      <i className="fa-solid fa-right-from-bracket bg-transparent me-2"></i>
+                    > */}
+                      {/* <i className="fa-solid fa-right-from-bracket bg-transparent me-2"></i>
                       Cerrar sesion
                     </Link>
                   </li>
                 </ul>
-              </div>
-            ) : (
+              </div> */}
+            {/* ) : ( */}
               <React.Fragment>
                 <Link
                   to="/login"
@@ -164,7 +164,7 @@ export const Navbar = () => {
                   </button>
                 </Link>
               </React.Fragment>
-            )}
+            {/* )} */}
           </div>
         </div>
       </div>
