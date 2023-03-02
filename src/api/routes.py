@@ -55,7 +55,7 @@ def registro():
             return 'Ha ocurrido un error!💥', 500
     else:
         return "Ya existe un usuario con ese email!", 400
-    return "Method not implemented yet!",500
+    return "Method not implemented yet!", 500
         
     # if request.method == "GET" : 
     #     users = User.query.all()
