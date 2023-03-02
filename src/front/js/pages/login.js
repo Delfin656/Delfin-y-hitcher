@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+
 
 import { Context } from "../store/appContext";
 
@@ -13,6 +15,18 @@ export const Login = (props) => {
     event.preventDefault();
     actions.login(email, password);
   };
+
+  const showAlert = () =>{
+    Swal.fire({
+      
+      title:'¡Bienvenido!',
+      text:'Inicio de sesión exitoso',
+      icon:'success',
+      confirmButtonColor: "#1b1b1b"
+
+    }
+    )
+  }
 
   useEffect(() => {
     if (
@@ -110,6 +124,27 @@ export const Login = (props) => {
                   <button
                     type="submit"
                     className="btn btn-dark"
+                    onClick={async (event) => {
+                      showAlert(event.target.value)
+
+                      // console.log(email);
+                      // if (email.trim() == "") {
+                      //   Swal("¡Ups!", "Debes colocar un Email");
+                      // } else if (password.trim() == "") {
+                      //   Swal("¡Ups!", "Debes colocar tu contraseña");
+                      // } else {
+                      //   let success = await login(email, password);
+                      //   if (success == true) {
+                      //     Swal("¡Bienvenido!", "Inicio de sesión exitoso", "success");
+                          
+                      //   }
+                      //   Swal(
+                      //     "Email o contraseña invalidos",
+                      //     "Intenta de nuevo",
+                      //     "error"
+                      //   );
+                      // }
+                    }}
                     style={{
                       border: "2px solid black",
                       borderRadius: "8px",

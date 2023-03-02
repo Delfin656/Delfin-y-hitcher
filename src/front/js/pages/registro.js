@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DYH from "../../img/D&H_Proyecto_final_LOGO Transparente.png";
+import Swal from "sweetalert2";
 
 import { Context } from "../store/appContext";
 
@@ -25,6 +26,7 @@ export const Registro = (props) => {
       password != ""
     )
       navigate("/login");
+
     // try {
     //   const response = await fetch(process.env.BACKEND_URL + "/api/user", {
     //     method: "POST",
@@ -49,6 +51,14 @@ export const Registro = (props) => {
     //   console.log(error);
     // }
   }
+  const showAlert = () => {
+    Swal.fire({
+      title:"¡Felicitaciones!",
+      text:"Te has registrado con éxito",
+      icon:"success",
+      confirmButtonColor: "#1b1b1b"
+    });
+  };
 
   return (
     <div className="container-fluid">
@@ -198,6 +208,9 @@ export const Registro = (props) => {
                 <button
                   type="submit"
                   className="btn btn-dark"
+                  onClick={async (event) => {
+                    showAlert(event.target.value);
+                  }}
                   style={{
                     border: "2px solid black",
                     borderRadius: "8px",

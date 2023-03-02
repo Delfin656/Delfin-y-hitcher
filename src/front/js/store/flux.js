@@ -44,7 +44,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             alert("Error al crear el usuario");
             return false;
           }
-          alert("Usuario creado");
+          //alert("Usuario creado");
+          console.log("Usuario creado exitosamente")
 
           const body = await response.json();
           return true;
@@ -72,7 +73,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             alert("Error iniciando sesión");
             return false;
           }
-          alert("Haz iniciado sesión exitosamente");
+          //alert("Haz iniciado sesión exitosamente");
+          console.log("Haz iniciado sesión exitosamente");
           const body = await response.json();
           console.log(body);
 

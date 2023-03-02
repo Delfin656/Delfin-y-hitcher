@@ -11,6 +11,7 @@ import { AboutUs } from "./pages/aboutUs";
 import { Recipes } from "./pages/recipes";
 import injectContext from "./store/appContext";
 
+
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
