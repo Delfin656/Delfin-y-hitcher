@@ -1,8 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import DYH from "../../img/D&H_Proyecto_final_LOGO Transparente.png";
+import { Context } from "./../store/appContext";
 
 export const Navbar = () => {
+  const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-dark pt-0 pb-0">
       <div className="container-fluid">
@@ -77,60 +81,10 @@ export const Navbar = () => {
               </Link>
             </li>
           </ul>
+
           <div>
-            {/* {localStorage.getItem("token") ? (
-              <div className="dropdown me-1">
-                <button
-                  className="btn dropdown-toggle bg-transparent text-center boton-profile-navbar"
-                  type="button"
-                  id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                > */}
-                  {/* <img
-                    src={
-                      store.usuario.info?.imagen
-                        ? store.usuario.info.imagen
-                        : "https://res.cloudinary.com/dz8eyr7mb/image/upload/v1667342806/Animalium/Avatar_k0z1ns.png"
-                    }
-                    alt=""
-                    className="d-flex justify-content-center text-center rounded-circle"
-                    style={{
-                      width: "50px",
-                      height: "50px",
-                      objectFit: "cover",
-                    }}
-                  />
-                </button> */}
-                {/* <ul
-                  className="dropdown-menu dropdown-menu-end dropdown-menu-start"
-                  aria-labelledby="dropdownMenuButton1"
-                >
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Ir al perfil
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <Link
-                      className="dropdown-item"
-                      to="/login"
-                      style={{ color: "#20C997" }}
-                      onClick={() => {
-                        actions.removeToken();
-                      }}
-                    > */}
-                      {/* <i className="fa-solid fa-right-from-bracket bg-transparent me-2"></i>
-                      Cerrar sesion
-                    </Link>
-                  </li>
-                </ul>
-              </div> */}
-            {/* ) : ( */}
-              <React.Fragment>
+            {!store.tokenUserLogin ? (
+              <>
                 <Link
                   to="/login"
                   style={{
@@ -148,7 +102,7 @@ export const Navbar = () => {
                     Iniciar Sesión
                   </button>
                 </Link>
-
+                
                 <Link
                   to="/registro"
                   style={{ color: "Black", textDecoration: "none" }}
@@ -163,8 +117,22 @@ export const Navbar = () => {
                     Registrate
                   </button>
                 </Link>
-              </React.Fragment>
-            {/* )} */}
+              </>
+            ) : (
+              <button
+                className="button-login btn btn-light me-2 p-2 "
+                type="submit"
+                onClick={() => {
+                  actions.logout();
+                  navigate("/");
+                }}
+                style={{
+                  borderRadius: "8px",
+                }}
+              >
+                Cerrar Sesión
+              </button>
+            )}
           </div>
         </div>
       </div>

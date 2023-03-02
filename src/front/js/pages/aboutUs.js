@@ -87,10 +87,11 @@ export const AboutUs = () => {
             <div className="fw-bold text-light ms-4 mt-2" align="left">
               <h3>Alexandra Hitcher</h3>
               <p>
-                Cocinera Profesional - Siempre me había llamado la atención este
-                mundo de la gastronomia y que mejor manera de ayudar en este
-                proyecto de 4Geeks con mis conocimientos profesionales en artes
-                culinarias.
+                Profesional en Gastronomía y Artes Culinarias - Hola, soy
+                Alexandra Hitcher una Chef en crecimiento que te ayudará  a
+                potenciar tus técnicas y conocimientos culinarios para que
+                sorprendas a todos con platillos fantásticos en cualquier
+                ocasión!
               </p>
             </div>
           </div>

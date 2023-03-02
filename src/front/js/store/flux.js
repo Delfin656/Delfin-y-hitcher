@@ -21,6 +21,18 @@ const getState = ({ getStore, getActions, setStore }) => {
       exampleFunction: () => {
         getActions().changeColor(0, "green");
       },
+      ///////Sincronizacion del Token
+      syncToken: () => {
+        const token = localStorage.getItem("token");
+        console.log("Aplicacion recien cargada, sincronizando localStorage token");
+        if(token && token != "" && token != undefined) setStore({ tokenUserLogin: token });
+
+      },
+      logout: () => {
+        localStorage.removeItem("token");
+        console.log("Logout");
+        setStore({ tokenUserLogin: null });
+      },
 
       ///////Funcion de registro
 
