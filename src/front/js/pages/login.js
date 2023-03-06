@@ -158,9 +158,9 @@ export const Login = (props) => {
 
             <div className="col  text-center mt-5">
               ¿Aun no tienes una cuenta?
-              <a href="#" style={{ color: "black" }} className="ms-1">
+              <Link to="/registro" style={{ color: "black" }} className="ms-1">
                 Registrate
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -86,7 +86,7 @@ def registro():
     #     return jsonify(error.args[0]),error.args[1] if len(error.args) > 1 else 500
 
 
-@api.route("/login", methods=["GET","POST"])
+@api.route("/login", methods=["POST"])
 def create_token():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
