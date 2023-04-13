@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-
-
 import { Context } from "../store/appContext";
 
 export const Login = (props) => {
@@ -13,20 +11,32 @@ export const Login = (props) => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    actions.login(email, password);
-  };
-
-  const showAlert = () =>{
-    Swal.fire({
-      
-      title:'¡Bienvenido!',
-      text:'Inicio de sesión exitoso',
-      icon:'success',
-      confirmButtonColor: "#1b1b1b"
-
+    const response = await actions.login(email, password);
+    if (response) {
+      Swal.fire({
+        title: "¡Bienvenido!",
+        text: "Inicio de sesión exitoso",
+        icon: "success",
+        confirmButtonColor: "#dc3545",
+      });
+    } else {
+      Swal.fire({
+        title: "Error",
+        text: "Ocurrio un error al loguearte",
+        icon: "error",
+        confirmButtonColor: "#dc3545",
+      });
     }
-    )
   }
+
+  // const showAlert = () => {
+  //   Swal.fire({
+  //     title: "¡Bienvenido!",
+  //     text: "Inicio de sesión exitoso",
+  //     icon: "success",
+  //     confirmButtonColor: "#1b1b1b",
+  //   });
+  // };
 
   useEffect(() => {
     if (
@@ -125,7 +135,7 @@ export const Login = (props) => {
                     type="submit"
                     className="btn btn-dark"
                     onClick={async (event) => {
-                      showAlert(event.target.value)
+                      showAlert(event.target.value);
 
                       // console.log(email);
                       // if (email.trim() == "") {
@@ -136,7 +146,7 @@ export const Login = (props) => {
                       //   let success = await login(email, password);
                       //   if (success == true) {
                       //     Swal("¡Bienvenido!", "Inicio de sesión exitoso", "success");
-                          
+
                       //   }
                       //   Swal(
                       //     "Email o contraseña invalidos",
