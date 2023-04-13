@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import HitcherPlatoFinal from "../../img/Hitcher-plato-final-fondo-transparente.jpg";
+import HitcherPlatoFinal from "../../img/Hitcher-plato-final-fondo-transparente.png";
 import "../../styles/home.css";
 
 export const Home = () => {

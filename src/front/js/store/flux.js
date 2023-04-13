@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       tokenUserLogin: localStorage.getItem("tokenUserLogin") || null,
       message: null,
       recipes: [],
+      favorites: [],
       demo: [
         {
           title: "FIRST",
@@ -107,6 +108,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
+      ///Funcion de recetas, estoy haciendo una peticion al api(backend) por las recetas
       recipes: async () => {
         try {
           const response = await fetch(
@@ -129,6 +131,21 @@ const getState = ({ getStore, getActions, setStore }) => {
         } catch (error) {
           console.error(error);
         }
+      },
+
+      ///Funcion favoritos para agregar las cards de recetas
+      addFavorite: (pokemon) => {
+        const store = getStore();
+        if (!store.favorites.includes(pokemon))
+          setStore({ favorites: [...store.favorites, pokemon] });
+      },
+
+      ///Funcion para eliminar favoritos
+      deleteFavorite: (pokemon) => {
+        const store = getStore();
+        setStore({
+          favorites: [...store.favorites.filter((x) => x != pokemon)],
+        });
       },
 
       getMessage: async () => {
