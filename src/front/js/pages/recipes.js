@@ -39,7 +39,7 @@ export const Recipes = () => {
                   <div className="d-flex justify-content-between">
                     <Link to={`/single/${item.id}`}>
                       <button type="button" className="btn btn-outline-primary">
-                        Learn More
+                        Detalles
                       </button>{" "}
                     </Link>
                     {store.favorites.includes(item.content) ? null : (
