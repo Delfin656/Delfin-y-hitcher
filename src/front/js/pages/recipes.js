@@ -12,14 +12,16 @@ export const Recipes = () => {
   }, []);
   console.log(store.recipes);
   return (
-    <div className="ms-5 my-5">
+    <div className="d-inline ms-5 my-5">
       <div className="ms-5">
-        <h1 className="text-dark">Recetas</h1>
+        <h1 className="text-dark text-center">
+          <strong>✨Recetas✨</strong>
+        </h1>
 
         {/* Cards recetas */}
         {store.recipes.map((item, index) => {
           return (
-            <div key={index} className="flex-wrap d-flex mt-3 pb-3 scroll-lat">
+            <div key={index} className="mt-3 pb-3 scroll-lat">
               <div className="card" style={{ width: "18rem" }}>
                 <img
                   src={HitcherPollo}

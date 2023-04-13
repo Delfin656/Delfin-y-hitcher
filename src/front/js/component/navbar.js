@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DYH from "../../img/D&H_Proyecto_final_LOGO Transparente.png";
 import { Context } from "./../store/appContext";
+import { Recipes } from "../pages/recipes";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
@@ -30,7 +31,6 @@ export const Navbar = () => {
         >
           <div></div>
           <ul className="navbar-nav mb-2 mb-lg-0">
-            
             <li className="nav-item mx-3">
               <Link
                 to="/sobrenosotros"
@@ -63,7 +63,7 @@ export const Navbar = () => {
                     Iniciar Sesión
                   </button>
                 </Link>
-                
+
                 <Link
                   to="/registro"
                   style={{ color: "Black", textDecoration: "none" }}
@@ -80,19 +80,55 @@ export const Navbar = () => {
                 </Link>
               </>
             ) : (
-              <button
-                className="button-login btn btn-light me-2 p-2 "
-                type="submit"
-                onClick={() => {
-                  actions.logout();
-                  navigate("/");
-                }}
-                style={{
-                  borderRadius: "8px",
-                }}
-              >
-                Cerrar Sesión
-              </button>
+              <>
+                <div className="d-flex flex-wrap">
+                  <div className="dropdown">
+                    <button
+                      className="btn btn-light dropdown-toggle me-5"
+                      type="button"
+                      id="dropdownMenuButton1"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Favorites
+                      <span className="badge bg-danger mx-1">
+                        {store.favorites.length}
+                      </span>
+                    </button>
+                    <ul
+                      className="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton1"
+                    >
+                      {store.favorites.map((item, index) => {
+                        return (
+                          <li key={index}>
+                            <a className="dropdown-item" href="#">
+                              {item}
+                              <i
+                                className="btn btn-danger btn-sm fas fa-trash ms-2"
+                                onClick={() => actions.deleteFavorites(item)} // elimina favoritos
+                              ></i>
+                            </a>{" "}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                  <button
+                    className="button-login btn btn-light me-2 p-2 "
+                    type="submit"
+                    onClick={() => {
+                      actions.logout();
+                      navigate("/");
+                    }}
+                    style={{
+                      borderRadius: "8px",
+                    }}
+                  >
+                    Cerrar Sesión
+                  </button>
+                </div>
+              </>
             )}
           </div>
         </div>

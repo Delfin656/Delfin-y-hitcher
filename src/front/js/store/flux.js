@@ -134,19 +134,16 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       ///Funcion favoritos para agregar las cards de recetas
-      addFavorite: (pokemon) => {
-        const store = getStore();
-        if (!store.favorites.includes(pokemon))
-          setStore({ favorites: [...store.favorites, pokemon] });
-      },
+      setFavorites: (content) => {
+				const store = getStore();
+				setStore({favorites: [...store.favorites, content]})
 
-      ///Funcion para eliminar favoritos
-      deleteFavorite: (pokemon) => {
-        const store = getStore();
-        setStore({
-          favorites: [...store.favorites.filter((x) => x != pokemon)],
-        });
-      },
+			},
+		
+			deleteFavorites: (content) => {
+				const store = getStore();
+				setStore({favorites: [ ...store.favorites.filter( x=> x != content)  ]})
+			},
 
       getMessage: async () => {
         try {
