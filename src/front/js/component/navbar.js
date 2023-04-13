@@ -30,26 +30,7 @@ export const Navbar = () => {
         >
           <div></div>
           <ul className="navbar-nav mb-2 mb-lg-0">
-            <li className="nav-item mx-3">
-              <Link
-                to="/profile"
-                className="nav-link active"
-                aria-current="page"
-                style={{ color: "White" }}
-              >
-                Perfil
-              </Link>
-            </li>
-            <li className="nav-item mx-3">
-              <Link
-                to="/platos"
-                className="nav-link active"
-                aria-current="page"
-                style={{ color: "White" }}
-              >
-                Platos de Comida
-              </Link>
-            </li>
+            
             <li className="nav-item mx-3">
               <Link
                 to="/sobrenosotros"
@@ -58,26 +39,6 @@ export const Navbar = () => {
                 style={{ color: "White" }}
               >
                 Sobre Nosotros
-              </Link>
-            </li>
-            <li className="nav-item mx-3">
-              <Link
-                to="/contactanos"
-                className="nav-link active"
-                aria-current="page"
-                style={{ color: "White" }}
-              >
-                Contáctanos
-              </Link>
-            </li>
-            <li className="nav-item mx-3">
-              <Link
-                to="/contactanos"
-                className="nav-link active"
-                aria-current="page"
-                style={{ color: "White" }}
-              >
-                Blog
               </Link>
             </li>
           </ul>

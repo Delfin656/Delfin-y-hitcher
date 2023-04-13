@@ -7,6 +7,7 @@ from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
+from flask_jwt_extended import JWTManager
 import hashlib
 
 api = Blueprint('api', __name__)
@@ -20,6 +21,8 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+#registro    
 
 @api.route("/registro", methods=["POST"])    
 def registro():
@@ -56,45 +59,20 @@ def registro():
     else:
         return "Ya existe un usuario con ese email!", 400
     return "Method not implemented yet!", 500
-        
-    # if request.method == "GET" : 
-    #     users = User.query.all()
-    #     users_dictionaries = []
-
-    #     for user in users : 
-    #         users_dictionaries.append(user.serialize())
-        
-    #     return jsonify(users_dictionaries), 200
-
-    # new_user_data = request.json
-    # try: 
-    #     if "nombre" not in new_user_data or new_user_data["nombre"] == "" :
-    #         raise Exception("No existe nombre")
-    #     if "apellido" not in new_user_data or new_user_data["apellido"] == "":
-    #         raise Exception("No existe apellido")
-    #     if "email" not in new_user_data or new_user_data["email"] == "" :
-    #         raise Exception("No existe correo electronico")
-    #     if "phone" not in new_user_data or new_user_data["phone"] == "" :
-    #         raise Exception("No existe número de teléfono")
-    #     if "password" not in new_user_data or new_user_data["password"] == "" :
-    #         raise Exception("No existe contraseña")
-
-    #     new_user = User.create(**new_user_data)
-    #     return jsonify(new_user.serialize()), 200
     
-    # except Exception as error:
-    #     return jsonify(error.args[0]),error.args[1] if len(error.args) > 1 else 500
-
-
 @api.route("/login", methods=["POST"])
 def create_token():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
     if email == None or password == None:
         return jsonify({"msg": "Bad username or password"}), 401
-
-    access_token = create_access_token(identity=email)
-    return jsonify(access_token=access_token)    
+    else:
+        profile = User.query.filter_by(email=email, password=password).one_or_none()
+        if profile == None:
+            return 'El usuario no esta registrado en D&H', 404
+        else:
+            access_token = create_access_token(identity=email)
+            return jsonify({"access_token": access_token })
 
 @api.route('/chef_register', methods=['GET','POST'])
 def handle_chef():

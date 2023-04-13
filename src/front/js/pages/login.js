@@ -17,35 +17,25 @@ export const Login = (props) => {
         title: "¡Bienvenido!",
         text: "Inicio de sesión exitoso",
         icon: "success",
-        confirmButtonColor: "#dc3545",
+        confirmButtonColor: "#1b1b1b",
       });
     } else {
       Swal.fire({
         title: "Error",
         text: "Ocurrio un error al loguearte",
         icon: "error",
-        confirmButtonColor: "#dc3545",
+        confirmButtonColor: "#1b1b1b",
       });
     }
   }
-
-  // const showAlert = () => {
-  //   Swal.fire({
-  //     title: "¡Bienvenido!",
-  //     text: "Inicio de sesión exitoso",
-  //     icon: "success",
-  //     confirmButtonColor: "#1b1b1b",
-  //   });
-  // };
 
   useEffect(() => {
     if (
       store.tokenUserLogin &&
       store.tokenUserLogin !== "" &&
       store.tokenUserLogin !== undefined
-    ) {
+    )
       navigate("/recipes");
-    }
   }, [store.tokenUserLogin]);
 
   return (

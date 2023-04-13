@@ -23,7 +23,7 @@ const Layout = () => {
     const basename = process.env.BASENAME || "";
 
     return (
-        <div>
+        <div className="bg-secondary bg-gradient">
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
                     <Navbar />

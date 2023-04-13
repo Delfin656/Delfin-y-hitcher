@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DYH from "../../img/D&H_Proyecto_final_LOGO Transparente.png";
 import Swal from "sweetalert2";
-
 import { Context } from "../store/appContext";
 
 export const Registro = (props) => {
@@ -26,37 +25,37 @@ export const Registro = (props) => {
       password != ""
     )
       navigate("/login");
-
-    // try {
-    //   const response = await fetch(process.env.BACKEND_URL + "/api/user", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       email: email,
-    //       password: password,
-    //       nombre: nombre,
-    //       apellido: apellido,
-    //       telefono: telefono,
-    //     }),
-    //   });
-    //   if (!response.ok) {
-    //     alert("Error al crear el usuario");
-    //     return;
-    //   }
-    //   alert("Usuario creado");
-    //   navigate("/login");
-    // } catch (error) {
-    //   console.log(error);
-    // }
   }
+  // try {
+  //   const response = await fetch(process.env.BACKEND_URL + "/api/user", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       email: email,
+  //       password: password,
+  //       nombre: nombre,
+  //       apellido: apellido,
+  //       telefono: telefono,
+  //     }),
+  //   });
+  //   if (!response.ok) {
+  //     alert("Error al crear el usuario");
+  //     return;
+  //   }
+  //   alert("Usuario creado");
+  //   navigate("/login");
+  // } catch (error) {
+  //   console.log(error);
+  // }
+
   const showAlert = () => {
     Swal.fire({
-      title:"¡Felicitaciones!",
-      text:"Te has registrado con éxito",
-      icon:"success",
-      confirmButtonColor: "#1b1b1b"
+      title: "¡Felicitaciones!",
+      text: "Te has registrado con éxito",
+      icon: "success",
+      confirmButtonColor: "#1b1b1b",
     });
   };
 

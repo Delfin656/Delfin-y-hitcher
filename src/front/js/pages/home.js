@@ -31,11 +31,11 @@ export const Home = () => {
                   cualquier día una cita memorable.
                 </h3>
               </div>
-                <Link to="/registro">
-                  <button className="button-home btn btn-light">
-                    ¡Empezar ya!
-                  </button>
-                </Link>
+              <Link to="/registro">
+                <button className="button-home btn btn-light">
+                  ¡Empezar ya!
+                </button>
+              </Link>
             </div>
           </div>
         </div>

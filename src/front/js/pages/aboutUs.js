@@ -19,13 +19,13 @@ export const AboutUs = () => {
       <h1 className="fw-bold ms-2 mt-5 ps-5 pb-5 text-dark text-center">
         Sobre nosotros
       </h1>
-      <p className="fw-bold m-auto col-8 text-justify text-secondary">
+      <p className="fw-bold m-auto col-8 text-justify text-dark">
         <dd className="mb-4 primeralinea">
-          <strong className="text-dark">D&H</strong> es un proyecto que nace del
+          <strong className="">D&H</strong> es un proyecto que nace del
           deseo latente en cada uno de nosotros que nos llama a contriubuir con
           nuestro pueblo Venezolano, queriendo mejorarlo haciendo uso de la
           tecnología y los conocimientos adquiridos a través de
-          <strong className="text-dark"> 4Geeks Academy</strong> para así poder
+          <strong className=""> 4Geeks Academy</strong> para así poder
           aportar nuestro granito de arena.
         </dd>
         <dd className="mb-4 primeralinea">
@@ -88,7 +88,7 @@ export const AboutUs = () => {
               <h3>Alexandra Hitcher</h3>
               <p>
                 Profesional en Gastronomía y Artes Culinarias - Hola, soy
-                Alexandra Hitcher una Chef en crecimiento que te ayudará  a
+                Alexandra Hitcher una Chef en crecimiento que te ayudará a
                 potenciar tus técnicas y conocimientos culinarios para que
                 sorprendas a todos con platillos fantásticos en cualquier
                 ocasión!

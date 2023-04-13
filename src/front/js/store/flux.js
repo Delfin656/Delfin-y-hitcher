@@ -1,8 +1,9 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      tokenUserLogin: null,
+      tokenUserLogin: localStorage.getItem("tokenUserLogin") || null,
       message: null,
+      recipes: [],
       demo: [
         {
           title: "FIRST",
@@ -24,12 +25,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       ///////Sincronizacion del Token
       syncToken: () => {
         const token = localStorage.getItem("token");
-        console.log("Aplicacion recien cargada, sincronizando localStorage token");
-        if(token && token != "" && token != undefined) setStore({ tokenUserLogin: token });
-
+        console.log(
+          "Aplicacion recien cargada, sincronizando localStorage token"
+        );
+        if (token && token != "" && token != undefined)
+          setStore({ tokenUserLogin: token });
       },
       logout: () => {
-        localStorage.removeItem("token");
+        localStorage.removeItem("tokenUserLogin");
         console.log("Logout");
         setStore({ tokenUserLogin: null });
       },
@@ -39,29 +42,31 @@ const getState = ({ getStore, getActions, setStore }) => {
       registro: async (nombre, apellido, email, phone, password) => {
         const store = getStore();
         try {
-          const response = await fetch(process.env.BACKEND_URL + "/api/registro", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: email,
-              password: password,
-              nombre: nombre,
-              apellido: apellido,
-              phone: phone,
-            }),
-          });
+          const response = await fetch(
+            process.env.BACKEND_URL + "/api/registro",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                email: email,
+                password: password,
+                nombre: nombre,
+                apellido: apellido,
+                phone: phone,
+              }),
+            }
+          );
           if (!response.ok) {
             alert("Error al crear el usuario");
             return false;
           }
           //alert("Usuario creado");
-          console.log("Usuario creado exitosamente")
+          console.log("Usuario creado exitosamente");
 
           const body = await response.json();
           return true;
-
         } catch (error) {
           console.error(error);
         }
@@ -84,7 +89,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           if (!response.ok) {
             return false;
           }
-          //alert("Haz iniciado sesión exitosamente");
+
           console.log("Haz iniciado sesión exitosamente");
           const body = await response.json();
           console.log(body);
@@ -99,6 +104,30 @@ const getState = ({ getStore, getActions, setStore }) => {
           // navigate(`/${body.role}/profile/${body.id}`);
         } catch (error) {
           console.error("Ocurrio un error en el inicio de sesión");
+        }
+      },
+
+      recipes: async () => {
+        try {
+          const response = await fetch(
+            process.env.BACKEND_URL + "/api/recipes",
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          if (!response.ok) {
+            return false;
+          }
+
+          console.log("Recetas");
+          const body = await response.json();
+          setStore({ recipes: body });
+          console.log(body);
+        } catch (error) {
+          console.error(error);
         }
       },
 
